@@ -7,10 +7,8 @@ namespace WebApplication1.Models
     public class Games
     {
         [Key]
-        public int Id { get; set; }
-
-        [ForeignKey("Games")]
-        public int GamesID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int IdGame { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -22,13 +20,13 @@ namespace WebApplication1.Models
         public string State { get; set; }
 
         [Required]
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
 
         [Required]
-        public double Percent_Rent { get; set; }
+        public decimal Percent_Rent { get; set; }
 
         [Required]
-        public double Reward_Cooler_Coins { get; set; }
+        public decimal Reward_Cooler_Coins { get; set; }
 
         [Required]
         public string Image { get; set; }

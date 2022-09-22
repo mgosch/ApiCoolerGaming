@@ -47,7 +47,7 @@ namespace WebApplicationCoolerGaming.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutGames(int id, Games games)
         {
-            if (id != games.Id)
+            if (id != games.IdGame)
             {
                 return BadRequest();
             }
@@ -81,7 +81,7 @@ namespace WebApplicationCoolerGaming.Controllers
             _context.Games.Add(games);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGames", new { id = games.Id }, games);
+            return CreatedAtAction("GetGames", new { id = games.IdGame }, games);
         }
 
         // DELETE: api/Games/5
@@ -102,7 +102,7 @@ namespace WebApplicationCoolerGaming.Controllers
 
         private bool GamesExists(int id)
         {
-            return _context.Games.Any(e => e.Id == id);
+            return _context.Games.Any(e => e.IdGame == id);
         }
     }
 }

@@ -47,7 +47,7 @@ namespace WebApplicationCoolerGaming.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutComments(int id, Comments comments)
         {
-            if (id != comments.Id)
+            if (id != comments.IdComment)
             {
                 return BadRequest();
             }
@@ -81,7 +81,7 @@ namespace WebApplicationCoolerGaming.Controllers
             _context.Comments.Add(comments);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetComments", new { id = comments.Id }, comments);
+            return CreatedAtAction("GetComments", new { id = comments.IdComment }, comments);
         }
 
         // DELETE: api/Comments/5
@@ -102,7 +102,7 @@ namespace WebApplicationCoolerGaming.Controllers
 
         private bool CommentsExists(int id)
         {
-            return _context.Comments.Any(e => e.Id == id);
+            return _context.Comments.Any(e => e.IdComment == id);
         }
     }
 }
